@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+const yargs = require('yargs/yargs');
+const { hideBin } = require('yargs/helpers');
+
+require('ts-node/register');
+
+const build = require('./src/commands/build');
+const serve = require('./src/commands/serve');
+
+yargs(hideBin(process.argv))
+    .command(build)
+    .command(serve)
+    .help()
+    .parse()
